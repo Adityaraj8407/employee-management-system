@@ -18,6 +18,14 @@ public class splash extends JFrame{
     setLocationRelativeTo(null);// open app in the centre of the screen
     setLayout(null);
     setVisible(true);
+
+    try {
+        Thread.sleep(5000);
+        setVisible(false);
+        new Login();
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
    }
 
     public static void main(String[] args) {
