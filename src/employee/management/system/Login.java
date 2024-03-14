@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
 
 import javax.swing.*;
 import javax.swing.event.AncestorListener;
@@ -77,6 +78,23 @@ JButton login, back;
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == login){
+            try {
+               String username = tusername.getText();
+               String password = tpassword.getText(); 
+
+               conn conn = new conn();
+               String query = "select * from login where username =  '"+ username +"' and password = '"+password+"'";
+               ResultSet resultset = ((Object) conn.statement).executeQuery(query); 
+               if (resultset.next()){
+                setVisible(false);
+
+               }else {
+                JOptionPane.showMessageDialog(null, "Invalid username or password");
+               }
+               
+            } catch (Exception E) {
+                E.printStackTrace();
+            }
             ///////////////////////////
         }else if (e.getSource()== back) {
             System.exit(90);

@@ -1,0 +1,5 @@
+create database employeemanagementsystem;
+use employeemanagementsystem;
+create table login( username varchar(20), password varchar (20));
+select * from login;
+insert into login values ('aditya', '12345678' ); 
